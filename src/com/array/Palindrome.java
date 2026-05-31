@@ -5,7 +5,7 @@ public class Palindrome {
 	public static void main(String[] args) {
 		
 		
-		String s = "Madam";
+		String s = "Madamji";
 		String rev = "";
 		
 		s = s.toLowerCase();
@@ -15,7 +15,7 @@ public class Palindrome {
 			
 			
 		}
-	System.out.println(rev);
+//	System.out.println(rev);
 		if(s.equals(rev)){
 			
 			System.out.println("Palindrome");
