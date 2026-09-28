@@ -1,0 +1,58 @@
+package Practice;
+
+public class StringToInteger {
+	
+	public static int myatoi(String s){
+		
+		int i = 0;
+		int n = s.length();
+		
+		while(i < n && s.charAt(i)== ' '){
+			
+			i++;
+		}
+		
+		int sign = 1;
+		
+		if(i < n && s.charAt(i) == '-'){
+			
+			sign = -1;
+			i++;
+		}
+		else if(i < n && s.charAt(i) == '+'){
+			
+			i++;
+		}
+		
+		long num = 0;
+		
+		while(i < n && Character.isDigit(s.charAt(i))){
+			
+			int digit = s.charAt(i) - '0';
+			num = num * 10 + digit;
+			
+			if (sign == 1 && num > Integer.MAX_VALUE) {
+                return Integer.MAX_VALUE;
+            }
+
+            if (sign == -1 && -num < Integer.MIN_VALUE) {
+                return Integer.MIN_VALUE;
+            }
+            
+            i++;
+		}
+		
+		 return (int) (num * sign);
+	}
+
+	public static void main(String[] args) {
+		
+		  String str = "   -42abc";
+
+	        int result = myatoi(str);
+
+	        System.out.println("Input: " + str);
+	        System.out.println("Output: " + result);
+	}
+
+}
